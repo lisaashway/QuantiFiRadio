@@ -1,0 +1,93 @@
+{% extends "structure.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block page_content %}
+
+<div class = "row h-100" style = "margin-top: 100px;">
+  <div class = "col-7 center card border-primary">
+
+    <h4 class = "col-lg type-blockquotes" style = "margin-bottom: 10px;">{{ song_name  }} by {{ artist_name }}<br><br></h4>
+        
+    <div style = "margin-bottom: 40px;">
+        <img src="{{ preview["image"] }}"
+        width="200" height="200"><br>
+        <a href="{{ preview["url"] }}">Listen on Spotify</a>
+    </div>
+
+    <div class ="row">
+      <h5 class= "col-lg-4 text-justify align-text-top">Dancebility</h5>
+      <div class="progress col-lg-6">
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{ audioinfo['danceability']*100 }}%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1"></div>
+      </div>
+      <h6 class = "col-md text-justify align-text-top">{{ (audioinfo['danceability']*100)|round(3) }}%</h6>
+    </div>
+
+    <div class ="row">
+      <h5 class= "col-lg-4 text-justify align-text-top">Energy</h5>
+      <div class="progress col-lg-6">
+        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: {{ audioinfo['energy']*100 }}%" aria-valuenow="{{ audioinfo['energy'] }}" aria-valuemin="-1" aria-valuemax="100"></div>
+      </div>
+      <h6 class = "col-md text-justify align-text-top">{{ (audioinfo['energy']*100)|round(3) }}%</h6>
+    </div>
+
+    <div class ="row">
+      <h5 class= "col-lg-4 text-justify align-text-top">Loudness</h5>
+      <div class="progress col-lg-6">
+        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: {{ (audioinfo['loudness']/-60)*100 }}%" aria-valuenow="{{ audioinfo['loudness'] }}" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <h6 class = "col-md text-justify align-text-top">{{ (audioinfo['loudness'])|round(2) }} dB</h6>
+    </div>
+
+    <div class ="row">
+      <h5 class= "col-lg-4 text-justify align-text-top">Speechiness</h5>
+      <div class="progress col-lg-6">
+        <div class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: {{ audioinfo['speechiness']*100 }}%" aria-valuenow="{{ audioinfo['speechiness'] }}" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <h6 class = "col-md text-justify align-text-top">{{ (audioinfo['speechiness']*100)|round(3) }}%</h6>
+    </div>
+
+    <div class ="row">
+      <h5 class= "col-lg-4 text-justify align-text-top">Instrumental</h5>
+      <div class="progress col-lg-6">
+        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: {{ audioinfo['instrumentalness']*100 }}%" aria-valuenow="{{ audioinfo['instrumentalness'] }}" aria-valuemin="0" aria-valuemax="1"></div>
+      </div>
+      <h6 class = "col-md text-justify align-text-top">{{ (audioinfo['instrumentalness']*100)|round(3) }}%</h6>
+    </div>
+
+    <div class ="row">
+      <h5 class= "col-lg-4 text-justify align-text-top">Acousticness</h5>
+      <div class="progress col-lg-6">
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{ audioinfo['acousticness']*100 }}%" aria-valuenow="{{ audioinfo['acousticness'] }}" aria-valuemin="0" aria-valuemax="1"></div>
+      </div>
+      <h6 class = "col-md text-justify align-text-top">{{ (audioinfo['acousticness']*100)|round(3) }}%</h6>
+    </div>
+
+    <div class ="row">
+      <h5 class= "col-lg-4 text-justify align-text-top">Liveness</h5>
+      <div class="progress col-lg-6">
+        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: {{ audioinfo['liveness']*100 }}%" aria-valuenow="{{ audioinfo['liveness'] }}" aria-valuemin="0" aria-valuemax="1"></div>
+      </div>
+      <h6 class = "col-md text-justify align-text-top">{{ (audioinfo['liveness']*100)|round(3) }}%</h6>
+    </div>
+
+    <div class ="row">
+      <h5 class= "col-lg-4 text-justify align-text-top">Valence</h5>
+      <div class="progress col-lg-6">
+        <div class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: {{ audioinfo['valence']*100 }}%" aria-valuenow="{{ audioinfo['valence'] }}" aria-valuemin="0" aria-valuemax="1"></div>
+      </div>
+      <h6 class = "col-md text-justify align-text-top">{{ (audioinfo['valence'])|round(3) }}</h6>
+    </div>
+
+    <div class ="row">
+      <h5 class= "col-lg-4 text-justify align-text-top">Tempo</h5>
+      <div class="progress col-lg-6">
+        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: {{ (audioinfo['tempo']/250)*100 }}%" aria-valuenow="{{ audioinfo['tempo'] }}" aria-valuemin="0" aria-valuemax="250"></div>
+      </div>
+      <hmd class = "col-md text-justify align-text-top">{{ (audioinfo['tempo'])|round(1) }} bpm</hmd>
+    </div>
+
+  
+</div>
+
+{% endblock %}

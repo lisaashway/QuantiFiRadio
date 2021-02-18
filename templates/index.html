@@ -1,0 +1,18 @@
+{% extends "structure.html" %}
+{% block page_content %}
+<div class = "row h-100">
+  <div class = "center card border-primary mb-3">
+
+    <h3 class = "type-blockquotes" style = "margin-bottom: 50px;">Type in a song...</h3>
+
+    <form method = "POST" action = "/">
+      <d1>
+        {{ form.csrf_token }}
+        {{ wtf.form_field(form.search) }}
+        <input type = "submit" value = "Search">
+      </d1>
+    </form>
+
+  </div>      
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "structure.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+
+{% block page_content %}
+<div class = "row h-100" style = "margin-top: 100px;">
+  <div class = "center card border-primary mb-3">
+
+    <h3 class = "type-blockquotes" style = "margin-bottom: 50px;">Select The Correct Song </h3>
+
+    <div>
+
+      {% for i in range(song_list|length) %}
+      <form method = "post" action = "/select">
+        <button type="submit" value="{{ id_list[i] }}" class="btn btn-primary btn-lg btn-block"> {{ song_list[i]  }} by {{ artist_list[i] }}
+          <input type=hidden value="{{ id_list[i] }},{{ artist_list[i] }},{{ artist_id_list[i] }}" name="selection">
+        </button>
+      </form>
+      {% endfor %}
+    </div>
+
+  </div>        
+</div>
+
+{% endblock %} 

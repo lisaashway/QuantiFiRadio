@@ -1,0 +1,36 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block head %}
+
+  {% block styles %}
+  <link rel="stylesheet" href = "static/css/bootstrap.min.css">
+  <link rel="stylesheet" href = "static/css/style.css">
+  {% endblock %}
+  
+  {% block title  %}
+ 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>QuantiFi Radio</title>
+  {% endblock %}
+
+
+  {% block navbar %}
+
+    <div class = "border-primary navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+      <div class = "container">
+        <a href = "/" class = "navbar-brand">QuantiFi Radio</a>
+        <h6 class = "left-align">Learn the Details of Your Favorite Songs</h6>
+      </div>
+    </div>
+  {% endblock %}
+
+{% endblock %}
+
+
+{% block page_content %}
+{% endblock %}
+  
+
